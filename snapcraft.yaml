@@ -10,7 +10,6 @@ base: core18
 parts:
   snap-bug:
     plugin: python
-    python-version: python3
     source: .
     override-build: |
       snapcraftctl build
