@@ -13,7 +13,9 @@ def create_files(filename, cmd):
     stderr.close()
 
 def main():
-    filename = 'juju-status'
+    #snap_user_common = os.getenv('SNAP_USER_COMMON')
+    snap_user_common = '/home/lborda/snap/snap-bug/common'
+    filename = snap_user_common + '/juju-status'
     cmd = 'juju status'
     create_files(filename, cmd)
 
