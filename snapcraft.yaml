@@ -8,7 +8,7 @@ confinement: classic
 base: core18
 
 parts:
-  cdk-field-agent:
+  snap-bug:
     plugin: python
     python-version: python3
     source: .
@@ -17,5 +17,5 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/bin
       cp collect.py $SNAPCRAFT_PART_INSTALL/bin/
 apps:
-  cdk-field-agent:
+  snap-bug:
     command: bin/collect.py
