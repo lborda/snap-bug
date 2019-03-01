@@ -14,7 +14,7 @@ def create_files(filename, cmd):
 
 def main():
     filename = 'juju-status'
-    cmd = 'ls -la ~/'
+    cmd = 'juju status'
     create_files(filename, cmd)
 
 if __name__ == '__main__':
