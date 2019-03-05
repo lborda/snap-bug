@@ -1,0 +1,5 @@
+ERROR No controllers registered.
+
+Please either create a new controller using "juju bootstrap" or connect to
+another controller that you have been given access to using "juju register".
+

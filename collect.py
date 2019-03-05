@@ -14,7 +14,7 @@ def create_files(filename, cmd):
 
 def create_files2(filename, cmd):
     print('Running... : %s' % cmd)
-    proc = subprocess.Popen(cmd.split(), stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    proc = subprocess.Popen(cmd.split(), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = proc.communicate(cmd.encode())
     proc.wait()
     if stdout:
