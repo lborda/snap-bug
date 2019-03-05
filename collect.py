@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from subprocess import Popen
+import subprocess
 import os
 
 def create_files(filename, cmd):
@@ -12,12 +12,27 @@ def create_files(filename, cmd):
     stdout.close()
     stderr.close()
 
+def create_files2(filename, cmd):
+    print('Running... : %s' % cmd)
+    proc = subprocess.Popen(cmd.split(), stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    stdout, stderr = proc.communicate(cmd.encode())
+    proc.wait()
+    if stdout:
+        with open(filename + '.out', 'w') as file:
+            file.write(stdout.decode())
+    if stderr:
+        with open(filename + '.err', 'w') as file:
+            file.write(stderr.decode())
+
 def main():
     snap_user_common = os.getenv('SNAP_USER_COMMON')
     #snap_user_common = '/home/lborda/snap/snap-bug/common'
-    filename = snap_user_common + '/juju-status'
-    cmd = 'juju status'
-    create_files(filename, cmd)
+    filename = 'juju-status'
+    cmd = 'ls -la'
+    create_files2(filename, cmd)
 
 if __name__ == '__main__':
     main()
+
+
+
